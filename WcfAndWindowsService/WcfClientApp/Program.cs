@@ -35,6 +35,7 @@ namespace WcfClientApp
                         GetLastResult();
                         break;
                     default:
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Invalid option. Press any key to continue...");
                         Console.ReadKey();
                         break;
@@ -68,6 +69,7 @@ namespace WcfClientApp
             }
             catch
             {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Invalid value. Multiplier must be an integer value. Aborting.");
                 Thread.Sleep(2000);
                 return;
@@ -83,7 +85,7 @@ namespace WcfClientApp
         {
             var result = serviceClient.GetLastResult();
 
-            Console.WriteLine("Above is displayed data generated during last operation");
+            Console.WriteLine("Information below was generated during last operation");
             Console.WriteLine(string.Format("Multiplicand: {0}",result.Multiplicand));
             Console.WriteLine(string.Format("Multiplier..: {0}", result.Multiplier));
             Console.WriteLine(string.Format("Product.....: {0}", result.Product));
